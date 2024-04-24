@@ -1,0 +1,26 @@
+@use "@src/shared/scss/logic/func";
+
+.h1{
+    font-size: func.vw(48, 1920);
+    font-weight: 700;
+
+    @media (max-width: 1440px) {
+        font-size: func.vw(48, 1440);
+    }
+
+    @media (max-width: 960px) {
+        font-size: func.vw(48, 960);
+    }
+
+    @media (max-width: 720px) {
+        font-size: func.vw(48, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(48, 540);
+    }
+
+    @media (max-width: 420px) {
+        font-size: func.vw(48, 420);
+    }
+}
