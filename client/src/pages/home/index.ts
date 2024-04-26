@@ -1,5 +1,4 @@
-import {Home} from "@src/pages/home/Home";
+import { lazy } from "react";
 
-export{
-    Home
-}
+export const HomeChunk = lazy(() => import("@src/pages/home/Home").
+    then(module => ({default: module.Home})))
