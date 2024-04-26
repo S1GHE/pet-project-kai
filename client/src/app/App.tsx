@@ -1,5 +1,10 @@
+import { Home } from "@src/pages/home";
+import "./index.scss";
+
 export const App = () => {
   return (
-    <div>awdawdawd</div>
+    <div>
+      <Home/>
+    </div>
   )
 }
