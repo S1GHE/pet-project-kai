@@ -1,0 +1,7 @@
+@use "@src/shared/scss/logic/func";
+
+@mixin mediaFZ($maxWidth, $value, $size) {
+	@media (max-width: $maxWidth) {
+		font-size: func.vw($value, $size);
+	}
+}
