@@ -1,13 +1,14 @@
 import { ContainerModule } from "@src/shared/scss"
 import { Outlet } from "react-router-dom"
 import classes from "@src/features/Layout/layout.module.scss";
+import {Header, Footer} from "@src/features/Layout/section";
 
 export const Layout = () => {
   return (
     <main className={classes.flex_wrapper}>
         <header>
             <div className={ContainerModule.container}>
-                Подвал
+                <Header/>
             </div>
         </header>
 
@@ -17,7 +18,7 @@ export const Layout = () => {
 
         <footer>
             <div className={ContainerModule.container}>
-                Подвал
+                <Footer/>
             </div>
         </footer>
     </main>

@@ -1,6 +1,7 @@
 @use "@src/shared/scss/logic/func";
 
 .flex_wrapper{
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: func.vw(20, 1920);
