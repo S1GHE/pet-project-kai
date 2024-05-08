@@ -21,7 +21,6 @@ export const LoginAccount = () => {
                 <img src={bgImage} alt={bgImage}/>
             </div>
 
-            <div>test</div>
         </div>
     );
 };
