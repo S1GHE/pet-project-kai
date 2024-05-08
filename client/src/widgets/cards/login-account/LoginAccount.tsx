@@ -20,6 +20,8 @@ export const LoginAccount = () => {
             <div className={classes.card_img}>
                 <img src={bgImage} alt={bgImage}/>
             </div>
+
+            <div>test</div>
         </div>
     );
 };
