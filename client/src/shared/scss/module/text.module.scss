@@ -1,26 +1,35 @@
 @use "@src/shared/scss/logic/func";
+@use "@src/shared/scss/logic/mixin";
 
-.h1{
-    font-size: func.vw(48, 1920);
-    font-weight: 700;
+.p14 {
+	font-size: func.vw(14, 1920);
 
-    @media (max-width: 1440px) {
-        font-size: func.vw(48, 1440);
-    }
+	&__bold{
+		@extend .p14;
+		font-weight: 700;
+	}
 
-    @media (max-width: 960px) {
-        font-size: func.vw(48, 960);
-    }
+	@include mixin.mediaFZ(1440px, 14, 1440);
+	@include mixin.mediaFZ(960px, 14, 960);
+	@include mixin.mediaFZ(720px, 14, 720);
+	@include mixin.mediaFZ(540px, 14, 540);
+	@include mixin.mediaFZ(420px, 14, 420);
+	@include mixin.mediaFZ(340px, 14, 340);
+}
 
-    @media (max-width: 720px) {
-        font-size: func.vw(48, 720);
-    }
 
-    @media (max-width: 540px) {
-        font-size: func.vw(48, 540);
-    }
+.p18 {
+	font-size: func.vw(18, 1920);
 
-    @media (max-width: 420px) {
-        font-size: func.vw(48, 420);
-    }
+	@include mixin.mediaFZ(1440px, 18, 1440);
+	@include mixin.mediaFZ(960px, 18, 960);
+	@include mixin.mediaFZ(720px, 18, 720);
+	@include mixin.mediaFZ(540px, 18, 540);
+	@include mixin.mediaFZ(420px, 18, 420);
+	@include mixin.mediaFZ(340px, 18, 340);
+
+	&__bold {
+		@extend .p18;
+		font-weight: 700;
+	}
 }
