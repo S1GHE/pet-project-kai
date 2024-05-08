@@ -1,9 +1,10 @@
+using KaiDns.Domain.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KaiDns.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]/[action]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -12,10 +13,12 @@ namespace KaiDns.Server.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly Db4660Context _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,Db4660Context context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -29,5 +32,14 @@ namespace KaiDns.Server.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet(Name = "GetCatalog")]
+        public IEnumerable<Catalog> GetCatalogs()
+        {
+            var catalogs = _context.Catalogs;
+            return catalogs.ToList();
+        }
+
+
     }
 }
