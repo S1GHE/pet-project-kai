@@ -1,0 +1,20 @@
+.base_link {
+  color: var(--main-blue);
+  transition: 300ms;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--orange_main);
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      color: var(--orange_main)
+    }
+  }
+
+  &:focus {
+    color: var(--orange_main)
+  }
+}

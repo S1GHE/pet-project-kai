@@ -1,9 +1,10 @@
-import { TextModule } from "@src/shared/scss"
+import {ContainerModule} from "@src/shared/scss";
+import {LoginAccount} from "@src/widgets/cards";
 
 export const Home = () => {
   return (
-    <div>
-        <h1 className={TextModule.p18}>Hello</h1>
+    <div className={ContainerModule.wrapper}>
+        <LoginAccount/>
     </div>
   )
 }
