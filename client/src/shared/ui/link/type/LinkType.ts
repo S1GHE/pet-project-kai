@@ -5,3 +5,6 @@ export interface ILinkBase {
     children: ReactNode | string;
     className?: string | undefined;
 }
+export interface ILinkBrand extends ILinkBase{
+    onClick:()=>void;
+}
