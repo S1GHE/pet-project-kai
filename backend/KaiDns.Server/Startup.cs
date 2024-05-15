@@ -1,28 +1,29 @@
 ﻿using KaiDns.Domain.Model;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Configuration;
 
 namespace KaiDns.Server
 {
-    internal class Startup
+    public class Startup
     {
-        private readonly IWebHostEnvironment environment; // Используйте IWebHostEnvironment
-        private readonly IConfiguration config;
+        //private readonly IWebHostEnvironment environment; // Используйте IWebHostEnvironment
+        private  IConfiguration config;
 
         // Изменил тип параметра с IHostEnvironment на IWebHostEnvironment
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             this.config = configuration;
-            this.environment = environment;
+            //this.environment = environment;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.FullRegistrationServerServices(config, out var serverOption);
             // Add Services
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            var connectionString = config.GetConnectionString("Database_Connection"); // Используйте GetConnectionString
+            var connectionString = config["Database_Connection"]; // Используйте GetConnectionString
             services.AddDbContext<Db4660Context>(options =>
                 options.UseSqlServer(connectionString)); // Используйте options
         }
