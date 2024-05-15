@@ -23,7 +23,7 @@ namespace KaiDns.Server
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            var connectionString = config["Database_Connection"]; // Используйте GetConnectionString
+            var connectionString = "Data Source=db4660.public.databaseasp.net;Initial Catalog=db4660;Persist Security Info=True;User ID=db4660;Password=wX@3N+2j-yD4; TrustServerCertificate=True"; //config["Database_Connection"]; // Используйте GetConnectionString
             services.AddDbContext<Db4660Context>(options =>
                 options.UseSqlServer(connectionString)); // Используйте options
         }

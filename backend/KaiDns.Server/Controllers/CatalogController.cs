@@ -5,17 +5,17 @@ namespace KaiDns.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class WeatherForecastController : ControllerBase
+    public class CatalogController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CatalogController> _logger;
         private readonly Db4660Context _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,Db4660Context context)
+        public CatalogController(ILogger<CatalogController> logger,Db4660Context context)
         {
             _logger = logger;
             _context = context;

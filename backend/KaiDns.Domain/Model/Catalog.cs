@@ -10,4 +10,12 @@ public partial class Catalog
     public string Name { get; set; } = null!;
 
     public bool IsEnabled { get; set; }
+
+    public string? PathToIcon { get; set; }
+
+    public int? ParentId { get; set; }
+
+    public virtual ICollection<Catalog> InverseParent { get; set; } = new List<Catalog>();
+
+    public virtual Catalog? Parent { get; set; }
 }
