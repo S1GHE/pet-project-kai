@@ -20,8 +20,8 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
                     modules: {
                         auto: (resPath: string) => resPath.includes(".module."),
                         localIdentName: options.isDev
-                          ? "[path][name]__[local]--[hash:base64:8]"
-                          : "[hash:base64:8]"
+                            ? "[path][name]__[local]--[hash:base64:8]"
+                            : "[hash:base64:8]"
                     },
                 }
             },
@@ -39,8 +39,8 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
                     modules: {
                         auto: (resPath: string) => resPath.includes(".module."),
                         localIdentName: options.isDev
-                          ? "[path][name]__[local]--[hash:base64:8]"
-                          : "[hash:base64:8]"
+                            ? "[path][name]__[local]--[hash:base64:8]"
+                            : "[hash:base64:8]"
                     },
                 }
             }
@@ -53,7 +53,7 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
     }
 
     const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|webp)$/i,
         use: [
             {
                 loader: 'file-loader',
