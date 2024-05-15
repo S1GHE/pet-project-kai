@@ -1,0 +1,9 @@
+@use "src/shared/scss/logic/func";
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: func.vw(20, 1920) func.vw(8, 1920);
+}
+
