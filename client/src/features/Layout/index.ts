@@ -1,4 +1,4 @@
-import { Layout } from "@src/features/Layout/Layout";
+import { Layout } from "@src/features/layout/Layout";
 
 export{
     Layout

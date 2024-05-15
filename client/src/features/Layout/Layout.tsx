@@ -1,8 +1,7 @@
 import { ContainerModule } from "@src/shared/scss"
 import { Outlet } from "react-router-dom"
-import classes from "@src/features/Layout/layout.module.scss";
-import {Header, Footer} from "@src/features/Layout/section";
-import { LinkBrand } from "@src/shared/ui/link";
+import classes from "@src/features/layout/layout.module.scss";
+import {Header, Footer} from "@src/features/layout/section";
 
 export const Layout = () => {
   return (
@@ -15,7 +14,9 @@ export const Layout = () => {
 
         <section className={ContainerModule.container}>
             <Outlet/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </section>
+
         <footer>
             <div className={ContainerModule.container}>
                 <Footer/>

@@ -33,15 +33,3 @@
 		font-weight: 700;
 	}
 }
-
-.span12{
-	font-size: func.vw(12, 1920);
-
-	@include mixin.mediaFZ(1440px, 12, 1440);
-	@include mixin.mediaFZ(960px, 12, 960);
-	@include mixin.mediaFZ(720px, 12, 720);
-	@include mixin.mediaFZ(540px, 12, 540);
-	@include mixin.mediaFZ(420px, 12, 420);
-	@include mixin.mediaFZ(340px, 12, 340);
-
-}

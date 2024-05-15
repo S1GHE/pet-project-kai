@@ -1,3 +1,14 @@
 .container {
 	position: relative;
+	z-index: 50;
+}
+
+.headerStatic {
+	width: 100%;
+}
+
+.headerFixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
 }

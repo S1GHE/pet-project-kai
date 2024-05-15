@@ -1,21 +1,7 @@
 @use "@src/shared/scss/logic/func";
-@use "@src/shared/scss/logic/mixin";
 
-.container {
-  width: 1380px;
-  margin-inline: auto;
-
-  @media (max-width: 1440px) {
-    max-width: 100%;
-    overflow: hidden;
-  }
-}
-
-.wrapper {
-  padding-inline: 0;
-  @include mixin.mediaPI(1440px, 20, 1440);
-  @include mixin.mediaPI(960px, 20, 960);
-  @include mixin.mediaPI(720px, 20, 720);
-  @include mixin.mediaPI(540px, 20, 540);
-  @include mixin.mediaPI(420px, 20, 420);
+.container{
+    width: 1380px;
+    margin-inline: auto;
+    overflow-x: hidden;
 }

@@ -1,4 +1,4 @@
-import { Layout } from "@src/features/Layout"
+import { Layout } from "@src/features/layout"
 import { Route, Routes } from "react-router-dom"
 import { PublicLayoutRoutes } from "./paths"
 

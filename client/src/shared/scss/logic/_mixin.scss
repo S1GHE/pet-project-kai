@@ -5,15 +5,3 @@
 		font-size: func.vw($value, $size);
 	}
 }
-
-@mixin mediaPI($maxWidth, $value, $size){
-	@media (max-width: $maxWidth) {
-		padding-inline: func.vw($value, $size);
-	}
-}
-
-@mixin mediaGAP($maxWidth, $value, $size){
-	@media (max-width: $maxWidth) {
-		gap: func.vw($value, $size);
-	}
-}
