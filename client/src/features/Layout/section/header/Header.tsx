@@ -21,14 +21,12 @@ export const Header = () => {
       <div ref={headerTopRef}>
         <HeaderTop/>
       </div>
-      {!headerTopVisible &&
-        < div className={HeaderStyle.headerFixed}>
-          <HeaderBottom/>
-        </div>
-      }
-        < div className={HeaderStyle.headerStatic}>
-          <HeaderBottom/>
-        </div>
+
+      <div className={
+        headerTopVisible ? HeaderStyle.headerStatic : HeaderStyle.headerFixed
+      }>
+        <HeaderBottom/>
+      </div>
     </header>
   );
 };
