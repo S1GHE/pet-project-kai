@@ -6,8 +6,8 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "Database_Connection": "Data Source=db4660.public.databaseasp.net;Initial Catalog=db4660;Persist Security Info=True;User ID=db4660;Password=wX@3N+2j-yD4; TrustServerCertificate=True"
-
+        "Database_Connection": "Data Source=db4660.public.databaseasp.net;Initial Catalog=db4660;Persist Security Info=True;User ID=db4660;Password=wX@3N+2j-yD4; TrustServerCertificate=True",
+        "PATH_BASE": "getcatalogs" 
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7050;http://localhost:5275",

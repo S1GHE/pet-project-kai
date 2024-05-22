@@ -1,6 +1,8 @@
-﻿using KaiDns.Domain.Model;
+﻿using System.Text.Json.Serialization;
+using KaiDns.Domain.Model;
+using KaiDns.Server.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration; 
 
 namespace KaiDns.Server
 {
@@ -20,8 +22,11 @@ namespace KaiDns.Server
         {
             //services.FullRegistrationServerServices(config, out var serverOption);
             // Add Services
+            services.AddScoped<CatalogRepository>();
             services.AddControllers();
-            services.AddEndpointsApiExplorer();
+            services.AddEndpointsApiExplorer(); 
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen();
             var connectionString = "Data Source=db4660.public.databaseasp.net;Initial Catalog=db4660;Persist Security Info=True;User ID=db4660;Password=wX@3N+2j-yD4; TrustServerCertificate=True"; //config["Database_Connection"]; // Используйте GetConnectionString
             services.AddDbContext<Db4660Context>(options =>
@@ -42,7 +47,12 @@ namespace KaiDns.Server
             app.UseRouting(); // Добавлен вызов UseRouting
 
             app.UseAuthorization();
-
+            var pathBase = config["PATH_BASE"];
+            if (!string.IsNullOrWhiteSpace(pathBase))
+            {
+                pathBase = $"/{pathBase}";
+                app.UsePathBase(pathBase);
+            }
             app.UseEndpoints(endpoints => // Используйте UseEndpoints для маршрутизации контроллеров
             {
                 endpoints.MapControllers();
