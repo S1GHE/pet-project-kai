@@ -1,4 +1,6 @@
-﻿using KaiDns.Domain.Model;
+﻿using AutoMapper;
+using KaiDns.Domain.Model;
+using KaiDns.Server.DomainModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace KaiDns.Server.Repositories
@@ -7,9 +9,17 @@ namespace KaiDns.Server.Repositories
    
     {
         Db4660Context db;
-        public CatalogRepository()
+        Mapper Mapper { get; }
+        public CatalogRepository(Db4660Context _db)
         {
-            db = new Db4660Context();
+            db = _db;
+            var mapperConfiguration = new MapperConfiguration(cfg =>
+            {
+                //cfg.AddExpressionMapping();
+                cfg.CreateMap<Catalog, CatalogDto>().ReverseMap();
+                }
+            );
+            Mapper = new Mapper(mapperConfiguration);
         }
         public IEnumerable<Catalog> GetAll()
         {

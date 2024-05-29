@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KaiDns.Server.DomainModel
 {
-    internal class Catalog
+    internal class CatalogDto
     {
     }
 }
