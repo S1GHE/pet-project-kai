@@ -1,9 +1,10 @@
-﻿using KaiDns.Domain.Model;
+
+using System.Text.Json.Serialization;
+using KaiDns.Domain.Model;
 using KaiDns.Server.Repositories;
-using KaiDns.Server.Services;
-using KaiDns.Server.Services.Interfaces;
+
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration; 
 
 namespace KaiDns.Server
 {
@@ -23,8 +24,11 @@ namespace KaiDns.Server
         {
             //services.FullRegistrationServerServices(config, out var serverOption);
             // Add Services
+            services.AddScoped<CatalogRepository>();
             services.AddControllers();
-            services.AddEndpointsApiExplorer();
+            services.AddEndpointsApiExplorer(); 
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen();
             services.AddScoped<CatalogRepository>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
@@ -49,7 +53,12 @@ namespace KaiDns.Server
             app.UseRouting(); // Добавлен вызов UseRouting
 
             app.UseAuthorization();
-
+            var pathBase = config["PATH_BASE"];
+            if (!string.IsNullOrWhiteSpace(pathBase))
+            {
+                pathBase = $"/{pathBase}";
+                app.UsePathBase(pathBase);
+            }
             app.UseEndpoints(endpoints => // Используйте UseEndpoints для маршрутизации контроллеров
             {
                 endpoints.MapControllers();

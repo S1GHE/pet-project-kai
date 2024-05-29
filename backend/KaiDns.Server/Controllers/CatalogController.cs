@@ -1,5 +1,7 @@
 using KaiDns.Domain.Model;
+using KaiDns.Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace KaiDns.Server.Controllers
 {
@@ -7,37 +9,26 @@ namespace KaiDns.Server.Controllers
     [Route("api/[controller]/[action]")]
     public class CatalogController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        
 
         private readonly ILogger<CatalogController> _logger;
         private readonly Db4660Context _context;
+        private readonly CatalogRepository _catalogRepository;
 
-        public CatalogController(ILogger<CatalogController> logger,Db4660Context context)
+        public CatalogController(ILogger<CatalogController> logger,Db4660Context context, CatalogRepository catalogRepository)
         {
             _logger = logger;
             _context = context;
+            _catalogRepository = catalogRepository;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+       
 
         [HttpGet(Name = "GetCatalog")]
-        public IEnumerable<Catalog> GetCatalogs()
+        public  IActionResult GetCatalogs()
         {
-            var catalogs = _context.Catalogs;
-            return catalogs.ToList();
+            var catalogs = _catalogRepository.GetAll();
+            return Ok(catalogs.ToList());
         }
 
 
