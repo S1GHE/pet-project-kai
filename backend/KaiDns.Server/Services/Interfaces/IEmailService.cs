@@ -1,6 +1,6 @@
 ﻿namespace KaiDns.Server.Services.Interfaces
 {
-    public interface IAuthorizationService
+    public interface IEmailService
     {
         bool SendEmail (string message, string from, string to);
     }

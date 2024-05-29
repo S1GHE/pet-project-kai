@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KaiDns.Domain.Migrations
 {
     [DbContext(typeof(Db4660Context))]
-    [Migration("20240529145917_Customer")]
-    partial class Customer
+    [Migration("20240529162432_Test")]
+    partial class Test
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,7 +5,7 @@
 namespace KaiDns.Domain.Migrations
 {
     /// <inheritdoc />
-    public partial class Customer : Migration
+    public partial class Test : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
