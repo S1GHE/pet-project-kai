@@ -2,7 +2,8 @@
 using System.Text.Json.Serialization;
 using KaiDns.Domain.Model;
 using KaiDns.Server.Repositories;
-
+using KaiDns.Server.Services;
+using KaiDns.Server.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration; 
 
@@ -32,6 +33,7 @@ namespace KaiDns.Server
             services.AddSwaggerGen();
             services.AddScoped<CatalogRepository>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
+            services.AddScoped<IEmailService, EmailService>();
 
 
             var connectionString = "Data Source=db4660.public.databaseasp.net;Initial Catalog=db4660;Persist Security Info=True;User ID=db4660;Password=wX@3N+2j-yD4; TrustServerCertificate=True"; //config["Database_Connection"]; // Используйте GetConnectionString
